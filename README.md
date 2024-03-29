@@ -32,6 +32,8 @@ yarn dev
 
 ## More
 
-pug : [website](https://pugjs.org/api/getting-started.html) | [github](https://github.com/pugjs/pug)
+pugjs : [website](https://pugjs.org/api/getting-started.html) | [github](https://github.com/pugjs/pug)
 
-tenoxui : [github](https://github.com/nousantx/tenoxui) | [jsdelivr](https://jsdelivr.com/package/npm/tenoxui)
+gulpjs : [website](https://gulpjs.com/) | [github](https://github.com/gulpjs/gulp)
+
+tenoxui : [website](https://tenoxui.web.app/) | [github](https://github.com/nousantx/tenoxui)
