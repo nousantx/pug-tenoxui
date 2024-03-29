@@ -1,0 +1,121 @@
+doctype html
+html
+  head
+    meta(http-equiv="Content-Type" content="text/html;charset=UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Pug Design")
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap" rel="stylesheet")
+    link(href="https://cdn.jsdelivr.net/gh/nousantx/tenoxui-pages@master/css/google-icons.css" rel="stylesheet")
+    title Pug App TenoxUI
+    style.
+      :root {
+        /* Primary: Yellow Green */
+        --primary-100: #F9FFF2;
+        --primary-200: #E6FFC6;
+        --primary-300: #D7FD99;
+        --primary-400: #CCFA6C;
+        --primary-500: #C2F23F;
+        --primary-600: #9DBF1C;
+        --primary-700: #798C0C;
+        --primary-800: #525906;
+        --primary-900: #252602;
+        /* Accent: Han Purple */
+        --accent-100: #F9F2FF;
+        --accent-200: #DABDFF;
+        --accent-300: #B487FD;
+        --accent-400: #8751F7;
+        --accent-500: #541CED;
+        --accent-600: #2F09BB;
+        --accent-700: #16028A;
+        --accent-800: #080058;
+        --accent-900: #010026;
+        /* Neutral */
+        --neutral-100: #FBFCFA;
+        --neutral-200: #EAEDE7;
+        --neutral-300: #DADED4;
+        --neutral-400: #CACFC2;
+        --neutral-500: #BBBFB0;
+        --neutral-600: #96998C;
+        --neutral-700: #717368;
+        --neutral-800: #4C4D45;
+        --neutral-900: #262622;
+      }
+      * {
+        box-sizing:border-box;
+        margin:0;
+        padding:0;
+        font-family:'gabarito', sans-serif;
+      }
+    script(src='https://cdn.jsdelivr.net/npm/tenoxui@0.6.1')
+  body.center.h-mn-100vh
+    nav.fixed-top
+      .darkmode-toggler
+        span(onclick="toggleDarkMode()" class="ms-round" id="darkModeIcon") light_mode
+    main
+      section#home.fullsize.d-flex.ai-center
+        header
+          h1.fs-3rem Portfolio Tenox
+            span.primary .
+          p Hello World! Welcome to my portfolio.
+      section#project.d-flex.ai-center
+        header
+          h1.fs-3rem 
+            span.primary # 
+            span About Me
+            span(class="tc-[primary-500]") .
+          p Hello everyone! I'm Nur Ikhsan Majid (NOuSantx). I'm Front End Developer from Indonesia with 2+ years of experience.
+    script.
+      defineProps({
+        d: "display",
+      })
+      makeStyles({
+        body: "bg-[neutral-100] tc-[neutral-900] tr-prop-all tr-time-0.4s tr-timing-ease",
+        main: "w-100% display-flex fd-column flex-parent-center",
+        section: "w-100% p-2rem ph-10vw",
+        p: "tc-[neutral-800]",
+        "section.fullsize": "h-mn-100vh",
+        ".darker": "bg-[neutral-200]",
+        ".fixed-top": "position-fixed top-0 r-0 p-2rem",
+        ".primary": "tc-[primary-600]",
+        '.center': "display-flex flex-parent-center",
+        '.darkmode-toggler': {
+          "": "box-32px bg-[neutral-200] br-4px display-flex flex-parent-center",
+          span: "fs-16px fw-400 tc-[primary-500]",
+        },
+      })
+      tenoxui()
+    script.
+      // darkmode toggler
+      let darkMode = false;
+      function toggleDarkMode() {
+        darkMode = !darkMode;
+        const state = {
+          light:{
+            body: "bg-[neutral-100] tc-[neutral-900]",
+            p: "tc-[neutral-800]",
+            ".primary": "tc-[primary-600]",
+            '.darkmode-toggler': {
+              "": "bg-[neutral-200]",
+              span: "tc-[primary-600]",
+            },
+          },
+          dark:{
+            body: "bg-[neutral-900] tc-[neutral-100]",
+            p: "tc-[neutral-300]",
+            ".primary": "tc-[primary-500]",
+            '.darkmode-toggler': {
+              "": "bg-[neutral-800]",
+              span: "tc-[primary-500]",
+            },
+          }
+        };
+        const currentState = darkMode ? state.dark : state.light;
+        const currentIcon = darkMode ? 'dark_mode' : 'light_mode';
+        const darkModeIcon = document.getElementById('darkModeIcon')
+        //- console.log(darkMode, currentState);
+        makeStyles(currentState);
+        darkModeIcon.textContent = currentIcon
+      }
