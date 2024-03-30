@@ -1,5 +1,7 @@
 # Simple Portfolio Design
 
+A simple template for portfolio design using oug and tenoxui.
+
 ## Clone The Repository
 
 ```sh
