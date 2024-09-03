@@ -1,6 +1,6 @@
-# Simple Portfolio Design
+# Pug app
 
-A simple template for portfolio design using oug and tenoxui.
+TenoxUI on pug test.
 
 ## Clone The Repository
 
